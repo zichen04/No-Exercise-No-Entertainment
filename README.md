@@ -14,6 +14,5 @@ Here is a demo of pushup tracking: https://github.com/user-attachments/assets/1b
 <br />
 <br />
 
-**For detecting whether or not youtube is playing a video.** I am using the easyocr library to take frames from my display. It checks for if there is a youtube . com / watch, and it also checks for if a certain threshold of movement on the screen is met. If both conditions are true then it is determined that youtube is running.
+**For detecting whether or not youtube is playing a video.**  I created a chrome extension which keeps track of how long you've been watching for. Previously I tried to use easyocr library with python, however that implementation had significant drawbacks. It was taking a frames from the display, and checking if there is a youtube . com / watch, and it also checks for if a certain threshold of movement on the screen. So it didn't work if the youtube video is fullscreened, and also if it was a video with not a lot of movement on screen.
 
-There are some major limitations to this, currently it only works if your chrome tab is taking up the entire screen. And it also doesn't work if the youtube video is fullscreened, because then it cannot find the URL. I realize that I could probably instead make this project a chrome extension, which would then easily let me check if a youtube video was playing. However, I did not set out to build a chrome extension, so I feel it would exceed the scope of this project.
