@@ -1,0 +1,27 @@
+  {
+    "manifest_version": 3,
+    "name": "Track Youtube playtime",
+    "version": "1.0",
+    "description": "This tracks the youtube playtime",
+    "permissions": [
+      "activeTab", 
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://www.youtube.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.youtube.com/watch*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  

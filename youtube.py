@@ -1,3 +1,2 @@
-
-def detectYTplaying() -> bool:
-    return false;
+def isTimeUp():
+    return False

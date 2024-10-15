@@ -3,9 +3,10 @@ import youtube
 import ctypes
 import os
 
+
 # Block input (True = block, False = unblock)
 def blockInputs(block):
-    ctypes.windll.user32.BlockInput(block)
+    ctypes.windll.user32.BlockInput (block)
 
 def killChrome():
     try:
