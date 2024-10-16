@@ -20,3 +20,4 @@ Here is a demo of pushup tracking: https://github.com/user-attachments/assets/1b
 
 Currently, the chrome extension successfully tracks how long youtube has been playing for. The next step would be to link it to the python code and get everything working.
 
+![image](https://github.com/user-attachments/assets/76aae451-9952-41d5-9ae6-62a20cc1c5f0)
