@@ -1,64 +1,43 @@
 let timeWatched = 0;
 let minutes = 0;
 let isPlaying = false;
-let intervalId = null;
 
-const videoPlayer = document.querySelector('video');
-document.requestStorageAccess();
-
-// starts the tracking
-function startTracking() {
-    if (!intervalId) {
-        intervalId = setInterval(() => {
-            timeWatched += 1; 
-            
-            // increment minutes if needed
-            if (timeWatched == 60) {
-                timeWatched = 0;
-                minutes++;
-                console.log("seconds watched");
-                console.log(timeWatched);
-            }
-            
-            // checks if watchtime exceeds 10 minutes
-            if (minutes == 10) {
-                minutes = 0;
-                // do stuff for starting the python opencv code
-            }
-
-            chrome.storage.local.set({'minutes': minutes});
-
-        }, 1000); // check if youtube is playing every second, and adds 1 seconds to counter
+// Checks every second until a video player is found
+let intervalId = setInterval(() => {
+    const videoPlayer = document.querySelector('video');
+    if (videoPlayer) {
+        console.log("video player found successfuly");
+        startTracking(videoPlayer);
+        clearInterval(intervalId);
     }
+}, 1000);
+
+// tracks how long you've beenw atching for
+function startTracking(videoPlayer) {
+    let trackingInterval = setInterval(() => {
+        timeWatched += 1;
+
+        if (timeWatched === 60) {
+            timeWatched = 0;
+            minutes++;
+
+            // update minutes, send message to background.js
+            chrome.runtime.sendMessage({ action: 'updateMinutes', minutes: minutes });
+        }
+
+    }, 1000);
+
+    // event listener for when video is played
+    videoPlayer.addEventListener('play', () => {
+        if (!isPlaying) {
+            isPlaying = true;
+        }
+    });
+
+    // event listener for when video is paused
+    videoPlayer.addEventListener('pause', () => {
+        if (isPlaying) {
+            isPlaying = false;
+        }
+    });
 }
-
-// stops tracking
-function stopTracking() {
-    clearInterval(intervalId);
-    intervalId = null;
-}
-
-
-if (videoPlayer && !videoPlayer.paused) {
-    isPlaying = true;
-    startTracking();
-}
-
-
-// listens for video playing
-videoPlayer.addEventListener('play', () => {
-    if (!isPlaying) {
-        isPlaying = true;
-        startTracking();
-    }
-});
-  
-
-// listens for pausing of video
-videoPlayer.addEventListener('pause', () => {
-    if (isPlaying) {
-        isPlaying = false;
-        stopTracking();
-    }
-});
-  
