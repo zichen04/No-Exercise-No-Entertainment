@@ -9,7 +9,8 @@ The idea originally started as "homeworkout" as in, homework workout. Instead of
 
 **As for the pushup detection algorithm.** I am using OpenCV and the built in KCF tracking to track my person. Originally, I was trying to create my own tracking algorithm with mask and contours. However countours would often track things I didn't want tracked, like it would track my shadow. So I read into the tracking algorithms available in the openCV library and felt KCF tracking was the best for my use case. This was an article that helped a lot -> https://broutonlab.com/blog/opencv-object-tracking/
 
-Here is a demo of pushup tracking: [Watch the video](https://github.com/user-attachments/assets/1bde371b-964c-4cc2-b3d1-e43cb736a7b5)
+Here is a demo of pushup tracking: [![Watch the video](https://img.youtube.com/vi/bSQHON3_J4s/maxresdefault.jpg)]([https://youtu.be/VIDEO_ID](https://youtu.be/bSQHON3_J4s))
+
 
 <br />
 <br />
