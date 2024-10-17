@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         console.log(`Received minutes: ${minutes}`);
 
-        if (minutes >= 10) {
+        if (minutes == 10) {
             // do opencv stuff
             console.log("10 minutes reached");
             minutes = 0;
@@ -17,6 +17,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log(`minutes: ${minutes}`);
             });
         } else {
+            minutes++;
             // save minutes to storage
             chrome.storage.local.set({'minutes': minutes}, () => {
                 console.log(`minutes: ${minutes}`);
