@@ -1,2 +1,0 @@
-def isTimeUp():
-    return False

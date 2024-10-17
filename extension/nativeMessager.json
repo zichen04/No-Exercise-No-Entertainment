@@ -1,0 +1,7 @@
+{
+    "name": "track_youtube_playtime",
+    "description": "Track YouTube Playtime",
+    "path": "C:\\Users\\ziche\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "args": ["C:\\Users\\ziche\\Downloads\\personal projects\\No-Exercise-No-Entertainment\\main.py"],
+    "type": "stdio"
+}

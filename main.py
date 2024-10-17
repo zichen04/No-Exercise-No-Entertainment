@@ -1,5 +1,4 @@
 import detect
-import youtube
 import ctypes
 import os
 
@@ -14,18 +13,15 @@ def killChrome():
     except:
         print("Chrome is already closed")
 
+def runAll():
+    blockInputs(True)
 
-def main():
-    minutes = 0
+    if (detect.detectPushup()):
+        print("good job!")
+        blockInputs(False)
 
-    while True:     
-        
-        if (youtube.isTimeUp()):
-            blockInputs(True)
+    else:
+        killChrome()
 
-            if (detect.detectPushup()):
-                print("good job!")
-                blockInputs(False)
 
-            else:
-                killChrome()
+detect.detectPushup()
