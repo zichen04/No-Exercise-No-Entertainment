@@ -26,7 +26,7 @@ def detectPushup() -> bool:
     trackPerson.init(frame, bbox)
     
     # give the user 10 seconds to get into position
-    for i in range(10):
+    for i in range(10): 
         frame[:] = 0
         cv2.putText(frame, str(10 - i), (320, 240), cv2.FONT_HERSHEY_DUPLEX, 0.75, (0, 0, 255), 2)
         cv2.imshow("Tracking", frame)
