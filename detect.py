@@ -1,7 +1,7 @@
 import cv2
 import cv2.legacy
 
-def detectPushup() -> bool:
+def detectPushup() -> int:
     state = "up"
     nums = 0
     isFirst = True
@@ -21,7 +21,7 @@ def detectPushup() -> bool:
     bbox = (180, 250, 450, 200)
     boxCenter = (int(bbox[0] + 0.5*bbox[2]), int(bbox[1] + 0.5*bbox[3]))    # center of the bounding box
 
-    trackPerson = cv2.legacy.TrackerKCF.create()
+    trackPerson = cv2.TrackerMIL.create()
     
     trackPerson.init(frame, bbox)
     
@@ -41,7 +41,7 @@ def detectPushup() -> bool:
 
 
         if nums == 10:
-            return True
+            break
 
 
         if success:
@@ -79,6 +79,4 @@ def detectPushup() -> bool:
     webcamIn.release()
     cv2.destroyAllWindows()
     
-    return False
-
-
+    return nums

@@ -7,8 +7,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         console.log(`Received minutes: ${minutes}`);
 
-        if (minutes >= 10) {
-            // do opencv stuff
+        if (minutes == 10) {
+            
+            callPythonScript();
+
             console.log("10 minutes reached");
             minutes = 0;
 
@@ -17,6 +19,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log(`minutes: ${minutes}`);
             });
         } else {
+            minutes++;
             // save minutes to storage
             chrome.storage.local.set({'minutes': minutes}, () => {
                 console.log(`minutes: ${minutes}`);
@@ -24,3 +27,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
     }
 });
+
+
+
+function callPythonScript() {
+    fetch('http://localhost:5000/text', {
+        method: 'GET'
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Response from Python script:", data);
+    })
+    .catch(error => {
+        console.error('Error calling the Python script:', error);
+    });
+}

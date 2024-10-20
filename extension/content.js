@@ -23,6 +23,10 @@ function startTracking(videoPlayer) {
 
             // update minutes, send message to background.js
             chrome.runtime.sendMessage({ action: 'updateMinutes', minutes: minutes });
+
+            if (minutes == 10) {
+                minutes = 0
+            }
         }
 
     }, 1000);
