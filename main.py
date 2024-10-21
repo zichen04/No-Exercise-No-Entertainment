@@ -1,4 +1,3 @@
-
 import detect
 import ctypes
 import os
