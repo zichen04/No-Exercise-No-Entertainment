@@ -17,7 +17,7 @@ def detectPushup() -> int:
 
     ret, frame = webcamIn.read()
 
-    # create a bounding box and intialize a KCF tracker object
+    # create a bounding box and intialize a KCF tracker
     bbox = (180, 250, 450, 200)
     boxCenter = (int(bbox[0] + 0.5*bbox[2]), int(bbox[1] + 0.5*bbox[3]))    # center of the bounding box
 
@@ -26,9 +26,11 @@ def detectPushup() -> int:
     trackPerson.init(frame, bbox)
     
     # give the user 10 seconds to get into position
+    
     for i in range(10):
         frame[:] = 0
-        cv2.putText(frame, str(10 - i), (320, 240), cv2.FONT_HERSHEY_DUPLEX, 0.75, (0, 0, 255), 2)
+        cv2.putText(frame, "Get in position and be ready to do pushups in:", (25, 230), cv2.FONT_HERSHEY_DUPLEX, 0.75, (0, 0, 255), 2)
+        cv2.putText(frame, str(10 - i), (320, 260), cv2.FONT_HERSHEY_DUPLEX, 0.75, (0, 0, 255), 2)
         cv2.imshow("Tracking", frame)
         cv2.waitKey(1000)
 
@@ -56,7 +58,7 @@ def detectPushup() -> int:
 
             # use initial center position to count pushups
             else:                                                                   
-                if state == "up" and boxCenter[1] > initialYPos + 25:
+                if state == "up" and boxCenter[1] > initialYPos + 20:
                     state = "down"
                 elif state == "down" and boxCenter[1] < initialYPos + 7:
                     state = "up"
