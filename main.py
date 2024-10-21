@@ -1,18 +1,15 @@
+
 import detect
 import ctypes
 import os
 from flask import Flask
 
-
-
-detect.detectPushup()
-
-'''
 app = Flask(__name__)
-# Block input (True = block, False = unblock)
+ 
+# block inputs (True = block, False = unblock)
 def blockInputs(block):
     ctypes.windll.user32.BlockInput (block)
-
+ 
 def killChrome():
     try:
         os.system('tskill chrome')
@@ -29,18 +26,15 @@ def runAll():
 
     else:
         killChrome()
-'''
 
 
 
 
-"""
 @app.route('/text', methods=['GET'])
 def test():
-    detect.detectPushup()
+    runAll()
     return(" done!")
 
 if __name__ == '__main__':
     app.run(port=5000)
 
-"""
