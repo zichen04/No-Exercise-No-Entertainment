@@ -20,6 +20,18 @@ Here is a video demo of pushup tracking (redirect to youtube): [![Watch the vide
 
 <br /> 
 
-Currently, the chrome extension successfully tracks how long youtube has been playing for. The next step would be to link it to the python code and get everything working.
+The Chrome extension keeps track of how long the user has watched youtube for.
 
 ![image](https://github.com/user-attachments/assets/76aae451-9952-41d5-9ae6-62a20cc1c5f0)
+
+<br />
+
+Every 10 minutes, the extension communicates to the python code via a Flask local server. Inputs are frozen and the pushup detection is triggered.
+
+<br />
+
+**To run this**
+
+go to chrome://extensions/ and load unpacked, choose the "extensions" folder 
+
+Make sure that you run command prompt as administrator, and run the main.py file.
