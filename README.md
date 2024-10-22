@@ -35,3 +35,7 @@ Every 10 minutes, the extension communicates to the python code via a Flask loca
 go to chrome://extensions/ and load unpacked, choose the "extensions" folder 
 
 Make sure that you run command prompt as administrator, and run the main.py file.
+
+<br />
+
+Currently working on a full youtube video demoing this :3
