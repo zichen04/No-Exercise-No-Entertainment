@@ -1,4 +1,4 @@
-# No Exercise No Entertainment
+# Exercise Chrome Extension
 
 I've been lacking in the exercise department. So I came up with this project, the idea is that this program will detect when i have a youtube video playing. And every 10 minutes it will pause my video and freeze my mouse and keyboard input (so i can't unpause). My inputs will be frozen until 10 pushups are done.
 
